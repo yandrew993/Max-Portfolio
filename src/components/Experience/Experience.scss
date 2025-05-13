@@ -1,0 +1,228 @@
+// src/components/Experience/Experience.scss
+@import '../../styles/variables';
+@import '../../styles/mixins';
+
+.experience {
+  background: white;
+  padding: 4rem 0;
+  
+  @include respond(tablet) {
+    padding: 3rem 0;
+  }
+  
+  @include respond(phone) {
+    padding: 2rem 0;
+  }
+  
+  .section-title {
+    text-align: center;
+    margin-bottom: 3rem;
+    
+    @include respond(phone) {
+      margin-bottom: 2rem;
+      font-size: 1.8rem;
+    }
+  }
+  
+  .timeline {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+    padding-left: 50px;
+    
+    @include respond(tablet) {
+      padding-left: 40px;
+    }
+    
+    @include respond(phone) {
+      padding-left: 30px;
+    }
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 20px;
+      height: 100%;
+      width: 2px;
+      background: $accent-color;
+      
+      @include respond(phone) {
+        left: 15px;
+      }
+    }
+
+    &__item {
+      position: relative;
+      margin-bottom: 2.5rem;
+      padding-left: 30px;
+      
+      &:last-child {
+        margin-bottom: 0;
+      }
+      
+      @include respond(tablet) {
+        margin-bottom: 2rem;
+      }
+      
+      @include respond(phone) {
+        margin-bottom: 1.5rem;
+        padding-left: 20px;
+      }
+
+      &::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 5px;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background: $accent-color;
+        border: 3px solid white;
+        box-shadow: 0 0 0 2px $accent-color;
+        
+        @include respond(phone) {
+          width: 16px;
+          height: 16px;
+          top: 4px;
+          left: 0;
+          border: 2px solid white;
+        }
+      }
+    }
+
+    &__content {
+      background: $light-color;
+      padding: 2rem;
+      border-radius: 8px;
+      box-shadow: $box-shadow;
+      
+      @include respond(tablet) {
+        padding: 1.5rem;
+      }
+      
+      @include respond(phone) {
+        padding: 1.2rem;
+        border-radius: 6px;
+      }
+    }
+
+    &__title {
+      color: $primary-color;
+      margin-bottom: 0.5rem;
+      font-size: 1.3rem;
+      
+      @include respond(phone) {
+        font-size: 1.1rem;
+      }
+    }
+
+    &__company {
+      color: $accent-color;
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+      font-size: 1.1rem;
+      
+      @include respond(phone) {
+        font-size: 1rem;
+      }
+    }
+
+    &__period {
+      display: inline-block;
+      background: rgba($accent-color, 0.1);
+      color: $accent-color;
+      padding: 0.3rem 0.8rem;
+      border-radius: 50px;
+      font-size: 0.8rem;
+      margin-bottom: 1rem;
+      
+      @include respond(phone) {
+        padding: 0.2rem 0.6rem;
+        font-size: 0.75rem;
+        margin-bottom: 0.8rem;
+      }
+    }
+
+    &__responsibilities {
+      @include respond(phone) {
+        margin-left: -5px;
+      }
+      
+      li {
+        margin-bottom: 0.8rem;
+        position: relative;
+        padding-left: 20px;
+        line-height: 1.5;
+        
+        &:last-child {
+          margin-bottom: 0;
+        }
+        
+        @include respond(phone) {
+          margin-bottom: 0.6rem;
+          padding-left: 15px;
+          font-size: 0.95rem;
+          line-height: 1.4;
+        }
+
+        &::before {
+          content: '▹';
+          position: absolute;
+          left: 0;
+          color: $accent-color;
+          
+          @include respond(phone) {
+            font-size: 0.9rem;
+          }
+        }
+      }
+    }
+  }
+  
+  // For very small screens
+  @media (max-width: 380px) {
+    .timeline {
+      padding-left: 25px;
+      
+      &::before {
+        left: 12px;
+      }
+      
+      &__item {
+        padding-left: 15px;
+        
+        &::before {
+          width: 14px;
+          height: 14px;
+          top: 4px;
+        }
+      }
+      
+      &__content {
+        padding: 1rem;
+      }
+      
+      &__title {
+        font-size: 1rem;
+      }
+      
+      &__company {
+        font-size: 0.9rem;
+      }
+      
+      &__period {
+        font-size: 0.7rem;
+        padding: 0.2rem 0.5rem;
+      }
+      
+      &__responsibilities {
+        li {
+          font-size: 0.9rem;
+          padding-left: 12px;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,462 @@
+@import '../../styles/variables';
+@import '../../styles/mixins';
+
+.skills {
+  position: relative;
+  background: linear-gradient(135deg, #f8f9fa 0%, #f1f3f5 100%);
+  overflow: hidden;
+  padding: 4rem 0;
+  
+  @include respond(tablet) {
+    padding: 3rem 0;
+  }
+  
+  @include respond(phone) {
+    padding: 2.5rem 0;
+  }
+  
+  &::before {
+    content: '';
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    background: rgba($accent-color, 0.05);
+    border-radius: 50%;
+    top: -150px;
+    right: -150px;
+  }
+  
+  &::after {
+    content: '';
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    background: rgba($accent-color, 0.05);
+    border-radius: 50%;
+    bottom: -100px;
+    left: -100px;
+  }
+
+  .container {
+    position: relative;
+    z-index: 2;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    
+    @include respond(phone) {
+      padding: 0 1.5rem;
+    }
+  }
+  
+  .section-title {
+    margin-bottom: 2.5rem;
+    text-align: center;
+    
+    @include respond(phone) {
+      margin-bottom: 2rem;
+      font-size: 1.8rem;
+    }
+  }
+  
+  &__categories {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2.5rem;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+    
+    &.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    @include respond(tablet) {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+    
+    @include respond(phone) {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+  }
+  
+  &__category {
+    background: white;
+    border-radius: 16px;
+    padding: 2rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    transform: translateY(30px);
+    opacity: 0;
+    animation-name: slideInUp;
+    animation-duration: 0.6s;
+    animation-fill-mode: forwards;
+    animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+    
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+    }
+    
+    @include respond(phone) {
+      padding: 1.5rem;
+      border-radius: 12px;
+    }
+  }
+  
+  .category__header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 2px solid rgba($accent-color, 0.1);
+    
+    @include respond(phone) {
+      margin-bottom: 1.2rem;
+      padding-bottom: 0.6rem;
+    }
+  }
+  
+  .category__icon {
+    font-size: 2rem;
+    margin-right: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba($accent-color, 0.1);
+    width: 50px;
+    height: 50px;
+    border-radius: 12px;
+    
+    @include respond(phone) {
+      font-size: 1.5rem;
+      width: 40px;
+      height: 40px;
+      border-radius: 8px;
+      margin-right: 0.8rem;
+    }
+  }
+  
+  .category__title {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: $primary-color;
+    
+    @include respond(phone) {
+      font-size: 1.2rem;
+    }
+  }
+  
+  .skills__list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    
+    @include respond(phone) {
+      gap: 1.2rem;
+    }
+  }
+  
+  .skill {
+    position: relative;
+    opacity: 0;
+    transform: translateX(-20px);
+    animation-name: slideInRight;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+    
+    &:hover {
+      .skill__tooltip {
+        opacity: 1;
+        transform: translateY(0);
+        visibility: visible;
+      }
+    }
+  }
+  
+  .skill__info {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+    
+    @include respond(phone) {
+      margin-bottom: 0.3rem;
+    }
+  }
+  
+  .skill__name {
+    font-weight: 500;
+    color: $text-color;
+    
+    @include respond(phone) {
+      font-size: 0.95rem;
+    }
+  }
+  
+  .skill__percentage {
+    font-weight: 600;
+    color: $accent-color;
+    
+    @include respond(phone) {
+      font-size: 0.95rem;
+    }
+  }
+  
+  .skill__bar {
+    height: 10px;
+    background: rgba($accent-color, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+    
+    @include respond(phone) {
+      height: 8px;
+      border-radius: 8px;
+    }
+  }
+  
+  .skill__progress {
+    height: 100%;
+    background: linear-gradient(90deg, $accent-color, lighten($accent-color, 15%));
+    border-radius: 10px;
+    width: 0;
+    transition: width 1s cubic-bezier(0.1, 0.5, 0.1, 1);
+    box-shadow: 0 0 10px rgba($accent-color, 0.5);
+    position: relative;
+    
+    @include respond(phone) {
+      border-radius: 8px;
+      box-shadow: 0 0 6px rgba($accent-color, 0.4);
+    }
+    
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(
+        90deg,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 255, 255, 0.3) 50%,
+        rgba(255, 255, 255, 0) 100%
+      );
+      animation: shimmer 2s infinite;
+      
+      @include respond(phone) {
+        animation: shimmer 2.5s infinite; // Slow down animation on mobile for better performance
+      }
+    }
+  }
+  
+  .skill__tooltip {
+    position: absolute;
+    background: $primary-color;
+    color: white;
+    padding: 0.8rem 1rem;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    width: 200px;
+    top: -15px;
+    right: 0;
+    transform: translateY(10px);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+    
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      right: 20px;
+      border-left: 8px solid transparent;
+      border-right: 8px solid transparent;
+      border-top: 8px solid $primary-color;
+    }
+    
+    @include respond(tablet) {
+      width: 180px;
+    }
+    
+    @include respond(phone) {
+      width: 85%; // Use percentage width for better scaling
+      max-width: 250px;
+      left: 50%; // Center it
+      right: auto;
+      transform: translateX(-50%) translateY(10px); // Center it and start below
+      padding: 0.6rem 0.8rem;
+      font-size: 0.8rem;
+      top: auto;
+      bottom: -50px; // Position below on mobile
+      
+      &:hover, &:active {
+        transform: translateX(-50%) translateY(0); // Adjust hover position
+      }
+      
+      &::after {
+        bottom: auto;
+        top: -8px; // Arrow on top for bottom positioning
+        right: auto;
+        left: 50%;
+        transform: translateX(-50%);
+        border-bottom: 8px solid $primary-color;
+        border-top: none;
+      }
+    }
+  }
+  
+  .skills__highlight {
+    margin-top: 3rem;
+    opacity: 0;
+    transform: scale(0.9);
+    transition: all 0.6s ease 0.6s;
+    
+    &.visible {
+      opacity: 1;
+      transform: scale(1);
+    }
+    
+    @include respond(phone) {
+      margin-top: 2rem;
+    }
+    
+    .highlight__content {
+      background: $accent-color;
+      color: white;
+      padding: 2rem;
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      max-width: 600px;
+      margin: 0 auto;
+      box-shadow: 0 15px 30px rgba($accent-color, 0.3);
+      
+      @include respond(phone) {
+        padding: 1.5rem;
+        border-radius: 12px;
+        flex-direction: column;
+        box-shadow: 0 10px 20px rgba($accent-color, 0.25);
+      }
+      
+      p {
+        font-size: 1.2rem;
+        font-weight: 500;
+        margin: 0;
+        line-height: 1.5;
+        
+        @include respond(phone) {
+          font-size: 1rem;
+          line-height: 1.4;
+        }
+      }
+    }
+    
+    .highlight__icon {
+      font-size: 2.5rem;
+      margin-right: 1rem;
+      
+      @include respond(phone) {
+        font-size: 2rem;
+        margin-right: 0;
+        margin-bottom: 0.8rem;
+      }
+    }
+  }
+}
+
+// For very small screens
+@media (max-width: 380px) {
+  .skills {
+    padding: 2rem 0;
+    
+    .container {
+      padding: 0 1rem;
+    }
+    
+    .section-title {
+      font-size: 1.6rem;
+    }
+    
+    &__category {
+      padding: 1.2rem;
+      border-radius: 10px;
+    }
+    
+    .category__icon {
+      width: 35px;
+      height: 35px;
+      font-size: 1.3rem;
+    }
+    
+    .category__title {
+      font-size: 1.1rem;
+    }
+    
+    .skill__name, .skill__percentage {
+      font-size: 0.9rem;
+    }
+    
+    .skill__bar {
+      height: 6px;
+    }
+    
+    .skill__tooltip {
+      font-size: 0.75rem;
+      padding: 0.5rem 0.7rem;
+    }
+    
+    .skills__highlight {
+      .highlight__content {
+        padding: 1.2rem;
+        
+        p {
+          font-size: 0.9rem;
+        }
+      }
+      
+      .highlight__icon {
+        font-size: 1.8rem;
+        margin-bottom: 0.6rem;
+      }
+    }
+  }
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}

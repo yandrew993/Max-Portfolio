@@ -1,0 +1,353 @@
+@import '../../styles/variables';
+@import '../../styles/mixins';
+
+.header {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  position: relative;
+  background-color: #f8f9fa;
+  overflow: visible; // Changed to visible to prevent content cutting off
+  padding: 2rem 0; // Added padding for spacing
+  
+  @include respond(phone) {
+    padding: 3rem 0;
+  }
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: -10%;
+    right: -5%;
+    width: 40%;
+    height: 70%;
+    background-color: rgba($accent-color, 0.05);
+    border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+    z-index: 0;
+    animation: morphBackground 15s ease-in-out infinite alternate;
+  }
+
+  .container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    
+    @include respond(phone) {
+      padding: 0 1.5rem;
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 3rem;
+    position: relative;
+    z-index: 1;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+    
+    &.loaded {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    @include respond(tablet) {
+      flex-direction: column;
+      text-align: center;
+      gap: 2.5rem;
+    }
+    
+    @include respond(phone) {
+      gap: 2rem;
+    }
+  }
+
+  &__text-section {
+    flex: 1;
+    max-width: 600px;
+    
+    @include respond(tablet) {
+      max-width: 100%;
+      width: 100%;
+    }
+  }
+
+  &__title {
+    font-size: 3rem;
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+    color: $primary-color;
+    
+    @include respond(tablet) {
+      font-size: 2.5rem;
+    }
+    
+    @include respond(phone) {
+      font-size: 2.2rem;
+      margin-bottom: 1rem;
+    }
+    
+    .greeting {
+      display: block;
+      font-size: 1.8rem;
+      color: $accent-color;
+      margin-bottom: 0.5rem;
+      opacity: 0;
+      transform: translateX(-20px);
+      animation: fadeInRight 0.8s ease forwards 0.3s;
+      
+      @include respond(phone) {
+        font-size: 1.5rem;
+      }
+    }
+    
+    .position {
+      opacity: 0;
+      transform: translateX(-20px);
+      animation: fadeInRight 0.8s ease forwards 0.6s;
+    }
+  }
+
+  &__text {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    color: $text-color;
+    opacity: 0;
+    transform: translateX(-20px);
+    animation: fadeInRight 0.8s ease forwards 0.9s;
+    
+    @include respond(phone) {
+      font-size: 1rem;
+      margin-bottom: 1.5rem;
+      line-height: 1.6;
+    }
+  }
+
+  &__buttons {
+    display: flex;
+    gap: 1rem;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.8s ease forwards 1.2s;
+    
+    @include respond(tablet) {
+      justify-content: center;
+    }
+    
+    @include respond(phone) {
+      flex-direction: column;
+      gap: 0.8rem;
+      width: 100%;
+      max-width: 250px;
+      margin: 0 auto;
+    }
+  }
+
+  &__image-section {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: visible; // Ensure content isn't cut off
+    padding: 1rem; // Add padding to prevent cutoff
+  }
+
+  .image-container {
+    position: relative;
+    width: 350px;
+    height: 350px;
+    opacity: 0;
+    transform: translateX(20px);
+    animation: fadeInLeft 0.8s ease forwards 0.6s;
+    margin: 1rem; // Add margin to prevent cutoff
+    
+    @include respond(tablet) {
+      width: 300px;
+      height: 300px;
+    }
+    
+    @include respond(phone) {
+      width: 250px;
+      height: 250px;
+      margin: 0;
+    }
+    
+    @media (max-width: 380px) {
+      width: 220px;
+      height: 220px;
+    }
+  }
+
+  .profile-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+    box-shadow: 0 10px 30px rgba($primary-color, 0.2);
+    position: relative;
+    z-index: 2;
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .background-shape {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba($accent-color, 0.2);
+    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+    top: 20px;
+    left: 20px;
+    z-index: 1;
+    animation: morphShape 8s ease-in-out infinite alternate;
+    
+    @include respond(phone) {
+      // Adjust position for small screens to ensure it's visible
+      top: 15px;
+      left: 15px;
+    }
+  }
+}
+
+.btn {
+  padding: 0.8rem 2rem;
+  border-radius: 50px;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  display: inline-block;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 0.9rem;
+  
+  @include respond(phone) {
+    width: 100%; // Full width on mobile
+    text-align: center;
+    padding: 0.7rem 1.5rem;
+    font-size: 0.85rem;
+  }
+  
+  &--primary {
+    background-color: $accent-color;
+    color: white;
+    box-shadow: 0 4px 15px rgba($accent-color, 0.3);
+    
+    &:hover {
+      background-color: darken($accent-color, 10%);
+      transform: translateY(-3px);
+      box-shadow: 0 7px 15px rgba($accent-color, 0.4);
+    }
+  }
+  
+  &--secondary {
+    background-color: transparent;
+    color: $primary-color;
+    border: 2px solid $primary-color;
+    
+    &:hover {
+      background-color: $primary-color;
+      color: white;
+      transform: translateY(-3px);
+      box-shadow: 0 7px 15px rgba($primary-color, 0.2);
+    }
+  }
+}
+
+// Animations
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes morphShape {
+  0% {
+    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+  }
+  50% {
+    border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%;
+  }
+  100% {
+    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+  }
+}
+
+@keyframes morphBackground {
+  0% {
+    border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+  }
+  50% {
+    border-radius: 50% 50% 50% 50% / 50% 50% 50% 50%;
+  }
+  100% {
+    border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+  }
+}
+
+// Extra small device adjustments
+@media (max-width: 380px) {
+  .header {
+    &__title {
+      font-size: 2rem;
+      
+      .greeting {
+        font-size: 1.3rem;
+      }
+    }
+    
+    &__text {
+      font-size: 0.95rem;
+    }
+    
+    &__buttons {
+      max-width: 220px;
+    }
+  }
+  
+  .btn {
+    padding: 0.7rem 1.2rem;
+    font-size: 0.8rem;
+  }
+}
