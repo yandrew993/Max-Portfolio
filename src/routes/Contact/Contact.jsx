@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import './contact.scss';
 import { FaEnvelope, FaPhone, FaMapMarkerAlt, FaArrowLeft, FaWhatsapp } from 'react-icons/fa';
+import Footer from '../../components/Footer/Footer'; // Import the Footer component
 
 const Contact = () => {
   const [pageLoaded, setPageLoaded] = useState(false);
@@ -152,6 +153,9 @@ const Contact = () => {
           </div>
         </div>
       </div>
+
+      {/* Footer Component */}
+      <Footer />
     </div>
   );
 };

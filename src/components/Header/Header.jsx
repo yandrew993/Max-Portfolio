@@ -15,7 +15,7 @@ const Header = () => {
         <div className={`header__content ${isLoaded ? 'loaded' : ''}`}>
           <div className="header__text-section">
             <h1 className="header__title">
-              <div className="greeting">Hello, I'm Jane</div>
+              <div className="greeting">Hello, I'm Samwel</div>
               <div className="position">Customer Support Specialist</div>
             </h1>
             <p className="header__text">
@@ -26,9 +26,16 @@ const Header = () => {
               <Link to="/contact" className="btn btn--primary">
                 Contact Me
               </Link>
-              <a href="#about" className="btn btn--secondary">
-                Learn More
-              </a>
+              <div className="resume-download">
+                <a 
+                  href="/Samwel Anyolo Resume.pdf" 
+                  download="Samwel Anyolo.pdf" 
+                  className="btn btn--primary"
+                >
+                My Resume
+                </a>
+              </div>
+
             </div>
           </div>
           <div className="header__image-section">

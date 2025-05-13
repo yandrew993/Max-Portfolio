@@ -1,5 +1,3 @@
-// Documents\Customer\customer-support-portfolio\src\App.jsx
-// src/App.js
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import './App.scss';
@@ -9,7 +7,7 @@ import Skills from './components/Skills/Skills.jsx';
 import Experience from './components/Experience/Experience.jsx';
 // import Testimonials from './components/Testimonials/Testimonials';
 import Contact from './routes/Contact/Contact.jsx';
-// import Footer from './components/Footer/Footer';
+import Footer from './components/Footer/Footer';
 
 function App() {
   return (
@@ -24,8 +22,9 @@ function App() {
               <Experience />
               {/* <Testimonials /> */}
               {/* <Contact /> */}
+            
             </main>
-            {/* <Footer /> */}
+            <Footer />
           </>
         } />
         <Route path="/contact" element={<Contact />} />
