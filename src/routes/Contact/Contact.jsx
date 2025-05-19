@@ -15,7 +15,7 @@ const Contact = () => {
     }, 100);
   }, []);
   
-  const phoneNumber = '+13606489899';
+  const phoneNumber = '+254113069867';
   const emailAddress = 'jane.doe@example.com';
   
   const handleWhatsAppClick = () => {
@@ -42,7 +42,7 @@ const Contact = () => {
           <div className="hero-content">
             <h1 className="hero-title">Get in Touch</h1>
             <p className="hero-subtitle">
-              I'm always interested in discussing customer support opportunities and how I can help improve your user experience.
+              I'm always interested in discussing with clients on how to solve real world problems and how I can help improve your user experience.
             </p>
           </div>
         </div>

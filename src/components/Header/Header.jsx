@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './Header.scss';
-//import profileImage from '../../Assets/images/prof'; // You'll need to add this image
 import { Link } from 'react-router-dom';
+
 const Header = () => {
   const [isLoaded, setIsLoaded] = useState(false);
   
@@ -15,12 +15,12 @@ const Header = () => {
         <div className={`header__content ${isLoaded ? 'loaded' : ''}`}>
           <div className="header__text-section">
             <h1 className="header__title">
-              <div className="greeting">Hello, I'm Samwel</div>
-              <div className="position">Customer Support Specialist</div>
+              <div className="greeting">Hello, I'm Harmony</div>
+              <div className="position">Software Engineer</div>
             </h1>
             <p className="header__text">
-              Helping businesses deliver exceptional customer experiences
-              with empathy, efficiency, and technical expertise.
+              Building innovative solutions to solve real-world problems
+              with creativity, precision, and technical expertise.
             </p>
             <div className="header__buttons">
               <Link to="/contact" className="btn btn--primary">
@@ -28,19 +28,18 @@ const Header = () => {
               </Link>
               <div className="resume-download">
                 <a 
-                  href="/Samwel Anyolo Resume.pdf" 
-                  download="Samwel Anyolo.pdf" 
+                  href="/Harmony.pdf" 
+                  download="Harmony_Resume.pdf" 
                   className="btn btn--primary"
                 >
                 My Resume
                 </a>
               </div>
-
             </div>
           </div>
           <div className="header__image-section">
             <div className="image-container">
-              <img src= './Max.jpg' alt="Jane - Customer Support Specialist" className="profile-image" />
+              <img src='./Harmony.jpeg' alt="Harmony - Software Engineer" className="profile-image" />
               <div className="background-shape"></div>
             </div>
           </div>

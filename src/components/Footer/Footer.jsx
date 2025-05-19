@@ -8,7 +8,7 @@ const Footer = () => {
       <div className="container">
         <div className="footer__content">
           <div className="footer__brand">
-            <h2 className="footer__title">Samio Webpage</h2>
+            <h2 className="footer__title">Harmony Webpage</h2>
             <p className="footer__text">
               Delivering exceptional customer experiences with empathy, efficiency, and technical expertise.
             </p>
@@ -33,7 +33,7 @@ const Footer = () => {
         </div>
         <div className="footer__bottom">
           <p className="footer__copyright">
-            &copy; {new Date().getFullYear()} Samio Webpage. All rights reserved.
+            &copy; {new Date().getFullYear()} Harmo Webpage. All rights reserved.
           </p>
         </div>
       </div>

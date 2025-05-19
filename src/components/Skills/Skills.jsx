@@ -4,32 +4,41 @@ import './Skills.scss';
 // Skill categories with icons
 const skillCategories = [
   {
-    title: "Customer Support",
-    icon: "💬",
+    title: "Programming Languages",
+    icon: "💻",
     skills: [
-      { name: 'Customer Service', level: 95, description: 'Exceptional service with 95% customer satisfaction rate' },
-      { name: 'Problem Solving', level: 85, description: 'Resolving complex customer issues effectively' },
-      { name: 'Conflict Resolution', level: 88, description: 'De-escalating tense situations with empathy' },
+      { name: 'JavaScript', level: 95, description: 'Expert in modern JavaScript (ES6+), including frameworks like React and Node.js' },
+      { name: 'Python', level: 90, description: 'Proficient in Python for web development, data analysis, and scripting' },
+      { name: 'Java', level: 85, description: 'Experienced in building robust backend systems and APIs' },
     ]
   },
   {
-    title: "Technical Skills",
+    title: "Frontend Development",
+    icon: "🎨",
+    skills: [
+      { name: 'React', level: 92, description: 'Building dynamic and responsive user interfaces' },
+      { name: 'HTML & CSS', level: 95, description: 'Expert in semantic HTML and modern CSS techniques (Flexbox, Grid)' },
+      { name: 'TypeScript', level: 85, description: 'Strong understanding of static typing for scalable frontend applications' },
+    ]
+  },
+  {
+    title: "Backend Development",
     icon: "⚙️",
     skills: [
-      { name: 'Zendesk', level: 92, description: 'Expert in ticket management and automation' },
-      { name: 'Salesforce', level: 78, description: 'CRM data management and reporting' },
-      { name: 'LiveChat', level: 85, description: 'Real-time customer assistance specialist' },
+      { name: 'Node.js', level: 90, description: 'Building scalable server-side applications and RESTful APIs' },
+      { name: 'Express.js', level: 88, description: 'Efficient in creating middleware and routing for web applications' },
+      { name: 'SQL & Databases', level: 85, description: 'Proficient in MySQL, PostgreSQL, and database design' },
     ]
   },
-  {
-    title: "Professional Skills",
-    icon: "📊",
-    skills: [
-      { name: 'Communication', level: 90, description: 'Clear and effective written and verbal skills' },
-      { name: 'Time Management', level: 82, description: 'Efficiently handling multiple priorities' },
-      { name: 'Team Collaboration', level: 86, description: 'Working effectively across departments' },
-    ]
-  }
+  // {
+  //   title: "DevOps & Tools",
+  //   icon: "🚀",
+  //   skills: [
+  //     { name: 'Git & GitHub', level: 95, description: 'Version control and collaborative development' },
+  //     { name: 'Docker', level: 80, description: 'Containerization for consistent development and deployment' },
+  //     { name: 'CI/CD', level: 85, description: 'Automating builds, tests, and deployments with tools like Jenkins and GitHub Actions' },
+  //   ]
+  // }
 ];
 
 const Skills = () => {
@@ -106,8 +115,8 @@ const Skills = () => {
         
         <div className={`skills__highlight ${isVisible ? 'visible' : ''}`}>
           <div className="highlight__content">
-            <span className="highlight__icon">🚀</span>
-            <p>A passionate customer advocate with the technical skills to match.</p>
+            <span className="highlight__icon">🌟</span>
+            <p>A passionate software engineer dedicated to crafting innovative and scalable solutions.</p>
           </div>
         </div>
       </div>
