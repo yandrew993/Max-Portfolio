@@ -16,7 +16,7 @@ const Contact = () => {
   }, []);
   
   const phoneNumber = '+254113069867';
-  const emailAddress = 'jane.doe@example.com';
+  const emailAddress = 'harmonyokoth@gmail.com';
   
   const handleWhatsAppClick = () => {
     window.open(`https://wa.me/${phoneNumber.replace(/\+/g, '')}`, '_blank');
